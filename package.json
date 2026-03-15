@@ -4,9 +4,10 @@
   "description": "Turret Defender – Addictive arcade shooter for Android",
   "main": "index.html",
   "scripts": {
-    "sync":  "npx cap sync",
+    "build": "if not exist www mkdir www && copy /Y index.html www\\index.html && copy /Y icon.png www\\icon.png && copy /Y splash.png www\\splash.png",
+    "sync":  "npm run build && npx cap sync",
     "open":  "npx cap open android",
-    "build-android": "npx cap sync && npx cap open android"
+    "build-android": "npm run sync && npx cap open android"
   },
   "keywords": ["game", "arcade", "turret", "android"],
   "author": "AntiGravity",
